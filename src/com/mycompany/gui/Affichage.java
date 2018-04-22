@@ -6,8 +6,12 @@
 package com.mycompany.gui;
 
 import com.codename1.components.SpanLabel;
+import com.codename1.ui.Display;
 import com.codename1.ui.Form;
-import com.mycompagny.Service.ServiceTask;
+import com.codename1.ui.layouts.BoxLayout;
+import com.codename1.ui.spinner.Picker;
+import com.mycompagny.Service.ServicePromotion;
+import java.util.Date;
 
 /**
  *
@@ -19,12 +23,9 @@ public class Affichage {
     SpanLabel lb;
   
     public Affichage() {
-        
-        f = new Form();
-        lb = new SpanLabel("");
-        f.add(lb);
-        ServiceTask serviceTask=new ServiceTask();
-        lb.setText(serviceTask.getList2().toString());
+          f = new Form();   
+       
+         
         /*/
         ConnectionRequest con = new ConnectionRequest();
         con.setUrl("http://41.226.11.243:10004/tasks/");
