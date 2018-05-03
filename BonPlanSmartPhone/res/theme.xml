@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <resource majorVersion="1" minorVersion="9" useXmlUI="false">
+    <image name="1123.jpg"  />
     <image name="BackgroundRect.png" type="multi"  />
+    <image name="backgrpund.jpg"  />
     <image name="duke.png" type="multi"  />
     <image name="gradient-overlay.png"  />
+    <image name="loading_icon-03-512.png"  />
     <image name="login-background.jpg"  />
     <image name="logo.png"  />
     <image name="notes.png" type="multi"  />
@@ -304,6 +307,8 @@
         <val key="sel#transparency" value="0" />
         <val key="transparency" value="0" />
     </theme>
+    <image name="tunis.jpg"  />
+    <image name="tunisia.jpg"  />
     <image name="unselected-walkthru.png" type="multi"  />
     <image name="user-picture.jpg"  />
 </resource>

@@ -35,8 +35,8 @@ import com.codename1.uikit.entites.Utilisateur;
 	TextField usernameField;
 	TextField mdpField;
 	TextField repeatMdpField;
-	
-	
+	Resources theme;
+
 	TextField emailField;
 	
 	
@@ -47,8 +47,9 @@ import com.codename1.uikit.entites.Utilisateur;
 	Container registerContainer;
 	Form registerForm;
 	Button registerBtn;
-
+int test ; 
 	public Register() {
+             
 		usernameField=new TextField();
 		usernameField.setHint("Username");
 		mdpField=new TextField();
@@ -72,10 +73,14 @@ import com.codename1.uikit.entites.Utilisateur;
 		registerBtn.addActionListener(e->{
 			String type="";
 			String role="";
-			if(this.visiteurRadio.isSelected())
+			if(this.visiteurRadio.isSelected()){
 				role="a:1:{i:0;s:13:\"ROLE_VISITEUR\";}";
-			else role="a:1:{i:0;s:9:\"ROLE_PROP\";}";
-			
+                            
+                                InscriptionVisiteurForm b= new InscriptionVisiteurForm(theme);
+                                               b.show();}
+			else role="a:1:{i:0;s:9:\"ROLE_PROP\";}";{
+			test =1 ; 
+                }
 			
 			
 			Utilisateur u=new Utilisateur(this.usernameField.getText(),this.mdpField.getText(),this.emailField.getText(),role);
@@ -84,6 +89,7 @@ import com.codename1.uikit.entites.Utilisateur;
 		});
 		registerContainer.add(usernameField).add(mdpField).add(repeatMdpField).add(emailField).add(typeCompteContainer).add(registerBtn);
 		registerForm=new Form("Register");
+                registerForm.getStyle().setBgColor(1583656);
 		registerForm.add(registerContainer);
 	}
 	

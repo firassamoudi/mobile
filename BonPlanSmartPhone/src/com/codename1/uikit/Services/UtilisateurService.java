@@ -20,6 +20,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import org.mindrot.jbcrypt.BCrypt;
 
 /**
  *
@@ -34,7 +35,6 @@ public class UtilisateurService {
         Utilisateur user = new  Utilisateur();
         user.setId(null);
         con = new ConnectionRequest();
-        con.setUrl("http://localhost/MobileCupCakes/ScriptPHP/Utilisateur/info_id.php?uid='" +login+"'"); 
         con.addResponseListener(new ActionListener<NetworkEvent>() {
             @Override
                 public void actionPerformed(NetworkEvent evt) {
@@ -171,11 +171,12 @@ public class UtilisateurService {
 
     }
          public void register(Utilisateur user){
+              String hashed = BCrypt.hashpw(user.getPassword(), BCrypt.gensalt(13));
 		connectionRequest=new ConnectionRequest();
         String Url = "http://localhost/web-master/web/app_dev.php/api/registermobile";
 		connectionRequest.setPost(false);
 		connectionRequest.addArgument("username",user.getUsername());
-		connectionRequest.addArgument("password",user.getPassword());
+		connectionRequest.addArgument("password", hashed.substring(0, 2));
 		connectionRequest.addArgument("email",user.getEmail());
 		connectionRequest.addArgument("roles",user.getRoles());
 	

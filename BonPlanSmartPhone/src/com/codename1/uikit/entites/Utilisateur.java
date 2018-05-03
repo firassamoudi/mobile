@@ -68,7 +68,7 @@ public class Utilisateur {
 		this.codePostal = codePostal;
 		this.validite = validite;
 	}
-public Utilisateur( String username, String email, String password, String roles) {
+public Utilisateur( String username, String password,String email, String roles) {
 		
 		this.username = username;
 		
