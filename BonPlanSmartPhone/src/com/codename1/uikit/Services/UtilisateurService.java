@@ -171,14 +171,21 @@ public class UtilisateurService {
 
     }
          public void register(Utilisateur user){
-              String hashed = BCrypt.hashpw(user.getPassword(), BCrypt.gensalt(13));
+         //     String hashed = BCrypt.hashpw(user.getPassword(), BCrypt.gensalt(13));
 		connectionRequest=new ConnectionRequest();
         String Url = "http://localhost/web-master/web/app_dev.php/api/registermobile";
+             System.out.println("uuuuuuuuuuu fel register"+user);
 		connectionRequest.setPost(false);
 		connectionRequest.addArgument("username",user.getUsername());
-		connectionRequest.addArgument("password", hashed.substring(0, 2));
+		connectionRequest.addArgument("password", user.getPassword());
+                System.out.println("user      "+user.getPassword());
 		connectionRequest.addArgument("email",user.getEmail());
 		connectionRequest.addArgument("roles",user.getRoles());
+                connectionRequest.addArgument("nomVisiteur",user.getNomVisiteur());
+                connectionRequest.addArgument("prenomVisiteur",user.getPrenomVisiteur());
+                connectionRequest.addArgument("ville",user.getVille());
+                connectionRequest.addArgument("photodeprofil",user.getPhotodeprofil());
+                        
 	
 		
         connectionRequest.setUrl(Url);
